@@ -46,10 +46,7 @@ class MySpider(CrawlSpider):
             ['https://www.example.com']
         """
 
-        current_dir = os.path.dirname(os.path.realpath(__file__))
-        file_path = os.path.join(current_dir, url_file)
-
-        with open(file_path, "rt") as f:
+        with open(url_file, "rt") as f:
             start_urls = [url.strip() for url in f.readlines()]
 
         return start_urls

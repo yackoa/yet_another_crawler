@@ -17,7 +17,7 @@ class CrawlSpiderTest(unittest.TestCase):
         self.responses_dir = os.path.dirname(os.path.realpath(__file__))
         self.file_path = os.path.join(self.responses_dir, self.url)
         self.fake_response = Selector(text=open(self.file_path, 'r').read())
-        self.spider = MySpider(_follow_links=True)
+        self.spider = MySpider()
 
     def test_parse(self):
         from scrapy.http import Response, request
