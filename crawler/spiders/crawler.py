@@ -6,20 +6,31 @@ import os
 import tldextract
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
+from scrapy.utils.project import get_project_settings
+from scrapy import signals
 
 
 class MySpider(CrawlSpider):
-
     name = "test_spider"
     invalid_chars_set = ["#", "?"]
+    # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
+    # See https://docs.scrapy.org/en/latest/topics/settings.html
+    custom_settings = {
+        'ROBOTSTXT_OBEY': True,
+        'AUTOTHROTTLE_ENABLED': True,
+        'DOWNLOAD_DELAY': 2,
+        'CONCURRENT_REQUESTS_PER_DOMAIN': 2
 
-    def __init__(self, urlList='',  *args, **kwargs ): #
+    }
 
+    def __init__(self, urlList='', *args, **kwargs):  #
+        self.custom_settings = get_project_settings()
         self.start_urls = self.get_start_urls(urlList)
         self.allowed_domains = self.get_allowed_domains()
 
         self.rules = (Rule(LinkExtractor(), callback='parse_item', follow=True),)
         super().__init__(__rules=self.rules)
+
         self.output_file = str(self.allowed_domains[0]) + ".txt"
 
     def get_start_urls(self, url_file):
