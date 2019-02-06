@@ -23,4 +23,5 @@ For example : `scrapy runspider crawler/spiders/crawler.py -a urlList="/home/use
 * get tests working, offline testing of response isn't working (sorry for that). Lost a lot of time trying
 
 
+## Hasta la vista, baby.
 ![mic drop](mic_drop.gif)
