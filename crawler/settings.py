@@ -16,3 +16,4 @@ NEWSPIDER_MODULE = 'crawler.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
+#CRAWLSPIDER_FOLLOW_LINKS=True
