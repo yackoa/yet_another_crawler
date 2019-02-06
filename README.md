@@ -18,6 +18,18 @@ Use the following command to run
 
 For example : `scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"`
 
+**Summing up**
+
+Assuming you have git installed in your system
+```
+mkdir test ; cd test
+git clone https://github.com/yackoa/yet_another_crawler.git .
+virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+
+scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"
+```
 
 ## TODO
 * get tests working, offline testing of response isn't working (sorry for that). Lost a lot of time trying
