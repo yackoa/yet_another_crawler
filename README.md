@@ -16,7 +16,6 @@ Use the following command to run
 `scrapy runspider crawler/spiders/crawler.py -a urlList="path/to/input/domain_list.txt"`
 
 
-For example : `scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"`
 
 **Summing up**
 
@@ -28,7 +27,7 @@ virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 
-scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"
+scrapy runspider crawler/spiders/crawler.py -a urlList="input_domain_urls.txt"
 ```
 
 ## TODO
