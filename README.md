@@ -1,6 +1,8 @@
 # The crawler
 Hello there!
 
+This is a solution to the [interview question](https://github.com/pricesearcher/senior-python-software-developer) by [PriceSearcher](https://www.pricesearcher.com)
+
 ## Installation
 1. Download the project
 2. Extract to a folder and navigat to the location
