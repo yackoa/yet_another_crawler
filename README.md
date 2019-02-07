@@ -19,7 +19,7 @@ Use the following command to run
 
 **Summing up**
 
-Assuming you have git installed in your system
+Assuming you have git installed in your system & `input_domain_urls.txt` contains say `https://www.example.com`
 ```
 mkdir test ; cd test
 git clone https://github.com/yackoa/yet_another_crawler.git .
