@@ -5,25 +5,35 @@
 """
 import os
 import unittest
-from crawler.spiders.re_crawler import MySpider
+from crawler.spiders.crawler import MySpider
 from tests.responses import fake_response_from_file as fake
 from scrapy.selector import Selector
 
+# Test part
+from betamax import Betamax
+from betamax.fixtures.unittest import BetamaxTestCase
+from scrapy.http import HtmlResponse
+from crawler.spiders.crawler import MySpider
 
-class CrawlSpiderTest(unittest.TestCase):
+with Betamax.configure() as config:
+    # where betamax will store cassettes (http responses):
+    config.cassette_library_dir = '/home/stormfield/PycharmProjects/yet_another_crawler'
+    config.preserve_exact_body_bytes = True
 
-    def setUp(self):
-        self.url = "responses/osdir/index.html"
-        self.responses_dir = os.path.dirname(os.path.realpath(__file__))
-        self.file_path = os.path.join(self.responses_dir, self.url)
-        self.fake_response = Selector(text=open(self.file_path, 'r').read())
-        self.spider = MySpider()
+
+class TestExample(BetamaxTestCase):  # superclass provides self.session
 
     def test_parse(self):
-        from scrapy.http import Response, request
-        response = Response(url=self.url,
-                            request=request,
-                            body=str.encode(self.file_path))
+        example = MySpider(urlList='/home/stormfield/PycharmProjects/yet_another_crawler/input_domain_urls.txt')
+        example._follow_links =True
+        file_= u"/home/stormfield/PycharmProjects/yet_another_crawler/tests/responses/osdir/index.html"
+        # http response is recorded in a betamax cassette:
+        import requests
+        response = self.session.get(requests.build_absolute_uri(file_))
 
-        results = self.spider.parse(response)
-        print(list(results))
+        # forge a scrapy r  esponse to test
+        scrapy_response = HtmlResponse(body=response.content, url=file_)
+
+        result = example.parse(scrapy_response)
+        for i in result:
+            print(str(scrapy_response.url)    )
