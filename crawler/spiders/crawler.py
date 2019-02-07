@@ -97,13 +97,3 @@ class MySpider(CrawlSpider):
 
         return True
 
-    @classmethod
-    def from_crawler(cls, crawler, *args, **kwargs):
-
-        spider = super(MySpider, cls).from_crawler(crawler, *args, **kwargs)
-        crawler.signals.connect(spider.spider_closed, signal=signals.spider_closed)
-        spider.settings = get_project_settings()
-        return spider
-
-    def spider_closed(self, spider):
-        spider.logger.info('Spider closed: %s', spider.name)
