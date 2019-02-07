@@ -17,8 +17,6 @@ The project uses `scrapy` for the crawling and another library `tldextract` for 
 Use the following command to run
 `scrapy runspider crawler/spiders/crawler.py -a urlList="path/to/input/domain_list.txt"`
 
-
-
 **Summing up**
 
 Assuming you have git installed in your system
@@ -32,8 +30,16 @@ pip install -r requirements.txt
 scrapy runspider crawler/spiders/crawler.py -a urlList="input_domain_urls.txt"
 ```
 
+## Output file
+Say if the domain name was `example.com` then the output file name will be `example.com.txt`
+```
+https://www.example.com
+https://www.example.com/product/123
+https://www.example.com/page/about-us
+[...]
+```
 ## TODO
-* get tests working, offline testing of response isn't working (sorry for that). Lost a lot of time trying
+* Get tests working. Lost a lot of time trying betamax, fake_offline_requests. I am willing to learn, could you teach me to test the crawlSpider in Scrapy ?
 
 
 ## Hasta la vista, baby.
