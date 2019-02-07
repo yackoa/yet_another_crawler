@@ -1,6 +1,8 @@
 # The crawler
 Hello there!
 
+This is a solution to the [interview question](https://github.com/pricesearcher/senior-python-software-developer) by [PriceSearcher](https://www.pricesearcher.com)
+
 ## Installation
 1. Download the project
 2. Extract to a folder and navigat to the location
@@ -16,7 +18,6 @@ Use the following command to run
 `scrapy runspider crawler/spiders/crawler.py -a urlList="path/to/input/domain_list.txt"`
 
 
-For example : `scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"`
 
 **Summing up**
 
@@ -28,7 +29,7 @@ virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
 
-scrapy runspider crawler/spiders/crawler.py -a urlList="/home/user_name/PycharmProjects/test/yet_another_crawler/input_domain_urls.txt"
+scrapy runspider crawler/spiders/crawler.py -a urlList="input_domain_urls.txt"
 ```
 
 ## TODO
