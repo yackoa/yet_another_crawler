@@ -1,7 +1,9 @@
 # The crawler
-Hello there!
+This is a crawler written in [Scrapy](https://github.com/scrapy/scrapy) to crawl a site without a using sitemap. It recursively crawls the entire site within its domain ignoring the offsite requests. The crawling is throttled using the autothrottle feature of Scrapy to limit a maximum of two requests every second. It creates an output file in this [format](https://github.com/yackoa/yet_another_crawler#output-file)
 
-This is a solution to the [interview question](https://github.com/pricesearcher/senior-python-software-developer) by [PriceSearcher](https://www.pricesearcher.com)
+[Scrapy's](https://github.com/scrapy/scrapy) documentation is available [here](https://docs.scrapy.org/en/latest/)
+
+Contributers welcome.
 
 ## Installation
 1. Download the project
@@ -15,6 +17,7 @@ The project uses `scrapy` for the crawling and another library `tldextract` for 
 
 ## How to run ?
 Use the following command to run
+
 `scrapy runspider crawler/spiders/crawler.py -a urlList="path/to/input/domain_list.txt"`
 
 **Summing up**
